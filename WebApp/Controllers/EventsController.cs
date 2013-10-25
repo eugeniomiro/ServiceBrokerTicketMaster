@@ -45,10 +45,6 @@ namespace BrokerTicketingExample.Controllers
                 ViewBag["Error"] = ex.Message;
                 return View(booking);
             }
-            
         }
-
-  
-
     } 
 }

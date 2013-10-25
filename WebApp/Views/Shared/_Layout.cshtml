@@ -12,5 +12,22 @@
 </head>
 <body>
     @RenderBody()
+    <div id="notification"></div>
 </body>
+    <script type="text/javascript">
+        $(function () {
+            var print = $.connection.printHub;
+
+            print.client.printed = function (bookingId) {
+                $("#notification").text(bookingId + " was printed successfully!")
+                                  .fadeIn(2000)
+                                  .fadeOut(1000);
+
+            }
+            $.connection.hub.start().done(function () {
+                $("#notification").text("hub started").fadeOut(1000);
+            });
+        });
+    </script>
+
 </html>

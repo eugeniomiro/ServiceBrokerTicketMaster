@@ -50,6 +50,14 @@ namespace BrokerTicketingExample
             RegisterRoutes(RouteTable.Routes);
 
             BundleTable.Bundles.RegisterTemplateBundles();
+            PrintProcessor.Start();
+            PaymentProcessor.Start();
+        }
+
+        protected void Application_End()
+        {
+            PaymentProcessor.Stop();
+            PrintProcessor.Stop();
         }
     }
 }
